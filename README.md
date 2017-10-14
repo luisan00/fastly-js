@@ -39,7 +39,7 @@ keeping in mind the above structure, the only change between methods is the para
 
 ```js
 fastly.purge('http://example.url/path/to/resource')
-	// .then() and .catch() returns the result or error of the call
+	// .then() and .catch() will returns the result or error.
 	...
 ```
 
