@@ -4,8 +4,7 @@
   "description": "API fastly client for Node.js",
   "main": "lib/fastly.js",
   "scripts": {
-    "test": "tap test/*.js --coverage",
-    "posttest": "tap --coverage-report=lcov && codecov"
+    "test": "tap test/*.js --coverage"
   },
   "repository": {
     "type": "git",
@@ -20,7 +19,6 @@
   ],
   "dependencies": {},
   "devDependencies": {
-    "codecov": "^2.3.1",
     "tap": "^10.7.2"
   },
   "author": "luisan00",
