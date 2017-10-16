@@ -6,7 +6,7 @@ const fastly_api_key = process.env.FASTLY_API_KEY || '';
 
 var flib = new fastly(fastly_api_key);
 
-tap.test('request GET => .then', (t) => {
+tap.test('GET => .then', (t) => {
     t.type(flib.request, 'object', 'request => object');
     flib.request.options.method = 'GET';
     flib.request.options.path = `/content/edge_check?url=${content_url}`;
@@ -21,7 +21,7 @@ tap.test('request GET => .then', (t) => {
         })
 });
 
-tap.test('request GET => .catch', (t) => {
+tap.test('GET => .catch', (t) => {
     flib.request.options.method = 'GET';
     var wrong_url = 'sorry for the inconveniences, im testing a new library :(';
     flib.request.options.path = `/content/edge_check?url=${wrong_url}`;
@@ -36,13 +36,13 @@ tap.test('request GET => .catch', (t) => {
         })
 });
 
-tap.test('request POST => .then', (t) => {
+tap.test('POST => .then', (t) => {
     t.type(flib.request, 'object', 'request => object');
     flib.request.options.method = 'POST';
     flib.request.options.path = `/content/edge_check?url=${content_url}`;
     flib.request.send()
         .then((res) => {
-            t.type(res, 'object', '.then()');
+            t.type(res, 'string', '.then()');
             t.end();
         })
         .catch((err) => {
@@ -51,7 +51,7 @@ tap.test('request POST => .then', (t) => {
         })
 });
 
-tap.test('request POST => .catch', (t) => {
+tap.test('POST => .catch', (t) => {
     flib.request.options.method = 'POST';
     var wrong_url = 'sorry for the inconveniences, im testing a new library :(';
     flib.request.options.path = `/content/edge_check?url=${wrong_url}`;
