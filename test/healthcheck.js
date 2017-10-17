@@ -9,10 +9,9 @@ const name = 'fakeName';
 var flib = new fastly(fastly_api_key);
 
 tap.test('healthcheck', (t) => {
-  flib.healthcheck.delete(service_id, version, name)
+  flib.healthcheck(service_id, version, name)
     .then((res)=>{
       t.type(res, 'object', 'return object');
       t.end();
     })
-
 });
